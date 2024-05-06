@@ -106,8 +106,18 @@ Konfig kembali Erangel:
 
 Pastikan seluruh nodes kota dapat melakukan ping google
 
-## Nomor 2
-Buatlah file .sh yang berisi konfigurasi untuk node Pochinki dan Georgopol, kemudian jalankan file tersebut untuk melakukan provisioning. Kemudian lakukan konfigurasi pada direktori /etc/bind/jarkom/[airdrop/redzone/loot].it26.com seperti berikut:
+## Nomor 2 - 5
+- Buatlah file .sh yang berisi konfigurasi untuk node Pochinki dan Georgopol, kemudian jalankan file tersebut untuk melakukan provisioning.
+- Kemudian lakukan konfigurasi pada direktori /etc/bind/jarkom/[airdrop/redzone/loot].it26.com seperti berikut:
 <a href="https://ibb.co/wBbyx2d"><img src="https://i.ibb.co/sbDjMXg/config-etc-bind-jarkom-airdrop-update.png" alt="config-etc-bind-jarkom-airdrop-update" border="0"></a>
 <a href="https://ibb.co/sw92RK8"><img src="https://i.ibb.co/7WtXCns/config-etc-bind-jarkom-loot.png" alt="config-etc-bind-jarkom-loot" border="0"></a>
-<a href="https://ibb.co/wwdjVjn"><img src="https://i.ibb.co/1d0j1jC/config-etc-bind-jarkom-redzone-update.png" alt="config-etc-bind-jarkom-redzone-update" border="0"></a>
+<a href="https://ibb.co/jhwXWTz"><img src="https://i.ibb.co/0q9bFcK/config-etc-bind-jarkom-redzone-update.png" alt="config-etc-bind-jarkom-redzone-update" border="0"></a>
+- tambahkan nameserver 192.246.1.2 (master Pochinki) dan nameserver 192.246.3.3 (slave Georgopol) pada direktori /etc/resolv.conf masing-masing client yaitu Gatka, Quarry, Shelter
+```
+nameserver 192.246.1.2
+nameserver 192.246.3.3
+```
+- Pastikan setiap client pada Erangel dapat mengakses atau melakukan ping terhadap ketiga domain tersebut:
+<a href="https://ibb.co/QQ07KZV"><img src="https://i.ibb.co/g9YbRG8/Gatka.png" alt="Gatka" border="0"></a>
+<a href="https://ibb.co/wpQPbFh"><img src="https://i.ibb.co/ygkZMcF/Screenshot-2024-05-06-114035.png" alt="Screenshot-2024-05-06-114035" border="0"></a>
+<a href="https://ibb.co/KzhKCN4"><img src="https://i.ibb.co/Fq3HGsZ/Screenshot-2024-05-06-114104.png" alt="Screenshot-2024-05-06-114104" border="0"></a>
