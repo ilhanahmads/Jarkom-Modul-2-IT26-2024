@@ -131,4 +131,86 @@ nameserver 192.246.3.3
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/5cbK044/Screenshot-2024-05-06-120520.png" alt="Screenshot-2024-05-06-120520" border="0"></a>
 
 ## Nomor 7
-- 
+- buat file .sh pada nodes Pochinki dan Georgopol yang berisi konfigurasi untuk mendeklrasikan master dan slave seperti berikut:
+```
+#!/bin/bash
+
+# Konfig Pochinki
+echo '
+zone "airdrop.it26.com" {
+        type master;
+        notify yes;
+        also-notify { 192.246.3.3; }; //IP Georgopol
+        allow-transfer { 192.246.3.3; }; //IP Georgopol
+        file "/etc/bind/jarkom/airdrop.it26.com";
+};
+
+zone "redzone.it26.com" {
+        type master;
+        notify yes;
+        also-notify { 192.246.3.3; }; //IP Georgopol
+        allow-transfer { 192.246.3.3; }; //IP Georgopol
+        file "/etc/bind/jarkom/redzone.it26.com";
+};
+
+zone "loot.it26.com" {
+        type master;
+        notify yes;
+        also-notify { 192.246.3.3; }; //IP Georgopol
+        allow-transfer { 192.246.3.3; }; //IP Georgopol
+        file "/etc/bind/jarkom/loot.it26.com";
+};
+
+zone "4.246.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/jarkom/4.246.192.in-addr.arpa";
+};' > /etc/bind/named.conf.local
+
+service bind9 restart
+```
+```
+#!/bin/bash
+
+# Konfig Georgopol
+echo '
+zone "airdrop.it26.com" {
+    type slave;
+    masters { 192.246.1.2; }; // IP Pochinki
+    file "/var/lib/bind/airdrop.it26.com";
+};
+
+zone "redzone.it26.com" {
+    type slave;
+    masters { 192.246.1.2; }; // IP Pochinki
+    file "/var/lib/bind/redzone.it26.com";
+};
+
+zone "loot.it26.com" {
+    type slave;
+    masters { 192.246.1.2; }; // IP Pochinki
+    file "/var/lib/bind/loot.it26.com";
+};' > /etc/bind/named.conf.local
+
+service bind9 restart
+```
+- Jalankan kedua file tersebut di node masing-masing.
+- Coba matikan service bind9 pada node master yaitu Pochinki
+<a href="https://ibb.co/3kHfJyQ"><img src="https://i.ibb.co/CWFJr5D/Screenshot-2024-05-06-124331.png" alt="Screenshot-2024-05-06-124331" border="0"></a>
+- Lalu, lakukan ping dari client nodes ke salah satu domain. Apabila masih bisa diping, maka deklarasi slave dan master berhasil dilakukan.
+<a href="https://ibb.co/nLtR3L2"><img src="https://i.ibb.co/FDCnsDv/Screenshot-2024-05-06-124632.png" alt="Screenshot-2024-05-06-124632" border="0"></a>
+
+## Nomor 8
+- Jalankan command `nano /etc/bind/jarkom/airdrop.it26.com` kemudian tambahkan konfigurasi seperti berikut:
+<a href="https://ibb.co/wBbyx2d"><img src="https://i.ibb.co/sbDjMXg/config-etc-bind-jarkom-airdrop-update.png" alt="config-etc-bind-jarkom-airdrop-update" border="0"></a>
+- Setelah itu, cobalah ping subdomain medkit.airdrop.it26.com dari masing-masing client. Maka seharusnya subdomain tersebut akan mengarah ke alamat IP Lipovka
+<a href="https://ibb.co/Fn5w6QZ"><img src="https://i.ibb.co/b7sB14w/Screenshot-2024-05-06-130007.png" alt="Screenshot-2024-05-06-130007" border="0"></a>
+<a href="https://ibb.co/c8WyHdy"><img src="https://i.ibb.co/ykzN1JN/Screenshot-2024-05-06-130013.png" alt="Screenshot-2024-05-06-130013" border="0"></a>
+<a href="https://ibb.co/brCW9Fw"><img src="https://i.ibb.co/4jXmr2v/Screenshot-2024-05-06-130019.png" alt="Screenshot-2024-05-06-130019" border="0"></a>
+
+## Nomor 9
+- Tambahkan konfig berikut pada direktori `/etc/bind/named.conf.local` Georgopol
+<a href="https://ibb.co/d6LgFhz"><img src="https://i.ibb.co/zb7Jpk0/config-etc-bind-named-conf-local.png" alt="config-etc-bind-named-conf-local" border="0"></a>
+- Tambahkan konfig berikut pada direktori `/etc/bind/jarkom/redzone.it26.com` Pochinki
+<a href="https://ibb.co/wwdjVjn"><img src="https://i.ibb.co/1d0j1jC/config-etc-bind-jarkom-redzone-update.png" alt="config-etc-bind-jarkom-redzone-update" border="0"></a>
+- Tambahkan konfig berikut
+<a href="https://ibb.co/bzkyk15"><img src="https://i.ibb.co/86HRHMg/config-etc-bind-delegasi-redzone.png" alt="config-etc-bind-delegasi-redzone" border="0"></a>
