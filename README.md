@@ -210,7 +210,7 @@ service bind9 restart
 ## Nomor 9
 - Tambahkan konfig berikut pada direktori `/etc/bind/named.conf.local` Georgopol
 ```
-zone "siren.redzone.it25.com" {
+zone "siren.redzone.it26.com" {
     type master;
     file "/etc/bind/delegasi/redzone.it26.com"
 }
