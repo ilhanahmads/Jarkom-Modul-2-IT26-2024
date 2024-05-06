@@ -207,7 +207,7 @@ service bind9 restart
 <a href="https://ibb.co/c8WyHdy"><img src="https://i.ibb.co/ykzN1JN/Screenshot-2024-05-06-130013.png" alt="Screenshot-2024-05-06-130013" border="0"></a>
 <a href="https://ibb.co/brCW9Fw"><img src="https://i.ibb.co/4jXmr2v/Screenshot-2024-05-06-130019.png" alt="Screenshot-2024-05-06-130019" border="0"></a>
 
-## Nomor 9
+## Nomor 9 & 10
 - Tambahkan konfig berikut pada direktori `/etc/bind/named.conf.local` Georgopol
 ```
 zone "siren.redzone.it26.com" {
@@ -217,6 +217,18 @@ zone "siren.redzone.it26.com" {
 ```
 <a href="https://ibb.co/d6LgFhz"><img src="https://i.ibb.co/zb7Jpk0/config-etc-bind-named-conf-local.png" alt="config-etc-bind-named-conf-local" border="0"></a>
 - Tambahkan konfig berikut pada direktori `/etc/bind/jarkom/redzone.it26.com` Pochinki
-<a href="https://ibb.co/8B6fMkC"><img src="https://i.ibb.co/H2nb7ZS/Screenshot-2024-05-06-195138.png" alt="Screenshot-2024-05-06-195138" border="0"></a>
-- Tambahkan konfig berikut pada direktori `/xxx/xxx/xxx/xxx.com` Georgopol
+<a href="https://ibb.co/VH7yG1d"><img src="https://i.ibb.co/tZ7f6GS/Screenshot-2024-05-06-210031.png" alt="Screenshot-2024-05-06-210031" border="0"></a>
+- Tambahkan konfig berikut pada direktori `/etc/bind/named.conf.options` Pochinki dan Georgopol
+<a href="https://ibb.co/cF3fyHd"><img src="https://i.ibb.co/hW9Qgjv/config-etc-bind-named-conf-options.png" alt="config-etc-bind-named-conf-options" border="0"></a>
+- Jalankan command berikut
+`mkdir /etc/bind/delegasi dan cp /etc/bind/db.local /etc/bind/delegasi/redzone.it26.com` untuk membuat direktori /etc/bind/delegasi dan mengisinya dengan copyan dari konfig file /etc/bind/db.local
+- Tambahkan konfig berikut pada direktori `etc/bind/delegasi/redzone.it26.com` Georgopol
 <a href="https://ibb.co/qNNqfZK"><img src="https://i.ibb.co/GWWYLhy/config-etc-bind-delegasi-redzone.png" alt="config-etc-bind-delegasi-redzone" border="0"></a>
+- Setelah semua konfig selesai, seharusnya seluruh node client dapat melakukan ping ke subdomain `siren.redzone.it26.com` dan `log.siren.redzone.it26.com`
+
+<a href="https://ibb.co/LYy5FP2"><img src="https://i.ibb.co/vVWYFBK/Screenshot-2024-05-06-210426.png" alt="Screenshot-2024-05-06-210426" border="0"></a>
+<a href="https://ibb.co/7jTBJ0j"><img src="https://i.ibb.co/VJhbWkJ/Screenshot-2024-05-06-210418.png" alt="Screenshot-2024-05-06-210418" border="0"></a>
+
+## Kendala
+- Belum semua konfigurasi terautomasi dengan script bash, jadi masih ada beberapa konfigurasi yang dilakukan secara manual
+- Belum bisa mengerjakan soal nomor 11 - 20
