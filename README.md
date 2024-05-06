@@ -125,7 +125,7 @@ nameserver 192.246.3.3
 ## Nomor 6
 - Buat file .sh yang berisi konfigurasi nomor 6 untuk client node yaitu Gatka, Shelter dan Quarry. Kemudian jalankan file tersebut untuk melakukan provisioning (install dnsutils).
 - Buat file .sh yang berisi konfigurasi nomor 6 untuk master node yaitu Pochinki. Kemudian jalankan file tersebut untuk melakukan provisioning (reverse DNS/record PTR)
-- Jika sudah, jalankan command `host -t PTR 192.246.4.2 (IP Severny)`. Maka outputnya akan menjadi seperti berikut:
+- Jika sudah, jalankan command `host -t PTR 192.246.4.2 (IP Severny)`. Maka nanti setiap node client akan dapat melakukan PTR dan outputnya akan menjadi seperti berikut:
 <a href="https://ibb.co/Nm8Mq8v"><img src="https://i.ibb.co/VQ7sG71/Screenshot-2024-05-06-120343.png" alt="Screenshot-2024-05-06-120343" border="0"></a>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/1dbvzv0/Screenshot-2024-05-06-120452.png" alt="Screenshot-2024-05-06-120452" border="0"></a>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/5cbK044/Screenshot-2024-05-06-120520.png" alt="Screenshot-2024-05-06-120520" border="0"></a>
