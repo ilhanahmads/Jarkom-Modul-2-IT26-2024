@@ -209,6 +209,12 @@ service bind9 restart
 
 ## Nomor 9
 - Tambahkan konfig berikut pada direktori `/etc/bind/named.conf.local` Georgopol
+```
+zone "siren.redzone.it25.com" {
+    type master;
+    file "/etc/bind/delegasi/redzone.it26.com"
+}
+```
 <a href="https://ibb.co/d6LgFhz"><img src="https://i.ibb.co/zb7Jpk0/config-etc-bind-named-conf-local.png" alt="config-etc-bind-named-conf-local" border="0"></a>
 - Tambahkan konfig berikut pada direktori `/etc/bind/jarkom/redzone.it26.com` Pochinki
 <a href="https://ibb.co/8B6fMkC"><img src="https://i.ibb.co/H2nb7ZS/Screenshot-2024-05-06-195138.png" alt="Screenshot-2024-05-06-195138" border="0"></a>
