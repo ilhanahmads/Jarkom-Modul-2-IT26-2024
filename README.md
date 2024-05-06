@@ -119,7 +119,7 @@ nameserver 192.246.3.3
 ```
 - Pastikan setiap client pada Erangel dapat mengakses atau melakukan ping terhadap ketiga domain tersebut:
 <a href="https://ibb.co/QQ07KZV"><img src="https://i.ibb.co/g9YbRG8/Gatka.png" alt="Gatka" border="0"></a>
-<a href="https://ibb.co/9T15z9Y"><img src="https://i.ibb.co/vPTngxz/Screenshot-2024-05-06-114035.png" alt="Screenshot-2024-05-06-114035" border="0"></a>
+<a href="https://ibb.co/7Cq4yGq"><img src="https://i.ibb.co/vqSYzJS/Screenshot-2024-05-06-114035.png" alt="Screenshot-2024-05-06-114035" border="0"></a>
 <a href="https://ibb.co/KzhKCN4"><img src="https://i.ibb.co/Fq3HGsZ/Screenshot-2024-05-06-114104.png" alt="Screenshot-2024-05-06-114104" border="0"></a>
 
 ## Nomor 6
@@ -202,7 +202,7 @@ service bind9 restart
 ## Nomor 8
 - Jalankan command `nano /etc/bind/jarkom/airdrop.it26.com` kemudian tambahkan konfigurasi seperti berikut:
 <a href="https://ibb.co/wBbyx2d"><img src="https://i.ibb.co/sbDjMXg/config-etc-bind-jarkom-airdrop-update.png" alt="config-etc-bind-jarkom-airdrop-update" border="0"></a>
-- Setelah itu, cobalah ping subdomain medkit.airdrop.it26.com dari masing-masing client. Maka seharusnya subdomain tersebut akan mengarah ke alamat IP Lipovka
+- Setelah itu, cobalah ping subdomain medkit.airdrop.it26.com dari masing-masing client. Maka seharusnya subdomain tersebut akan mengarah ke alamat IP Lipovka <br>
 <a href="https://ibb.co/Fn5w6QZ"><img src="https://i.ibb.co/b7sB14w/Screenshot-2024-05-06-130007.png" alt="Screenshot-2024-05-06-130007" border="0"></a>
 <a href="https://ibb.co/c8WyHdy"><img src="https://i.ibb.co/ykzN1JN/Screenshot-2024-05-06-130013.png" alt="Screenshot-2024-05-06-130013" border="0"></a>
 <a href="https://ibb.co/brCW9Fw"><img src="https://i.ibb.co/4jXmr2v/Screenshot-2024-05-06-130019.png" alt="Screenshot-2024-05-06-130019" border="0"></a>
@@ -211,6 +211,6 @@ service bind9 restart
 - Tambahkan konfig berikut pada direktori `/etc/bind/named.conf.local` Georgopol
 <a href="https://ibb.co/d6LgFhz"><img src="https://i.ibb.co/zb7Jpk0/config-etc-bind-named-conf-local.png" alt="config-etc-bind-named-conf-local" border="0"></a>
 - Tambahkan konfig berikut pada direktori `/etc/bind/jarkom/redzone.it26.com` Pochinki
-<a href="https://ibb.co/wwdjVjn"><img src="https://i.ibb.co/1d0j1jC/config-etc-bind-jarkom-redzone-update.png" alt="config-etc-bind-jarkom-redzone-update" border="0"></a>
-- Tambahkan konfig berikut
-<a href="https://ibb.co/bzkyk15"><img src="https://i.ibb.co/86HRHMg/config-etc-bind-delegasi-redzone.png" alt="config-etc-bind-delegasi-redzone" border="0"></a>
+<a href="https://ibb.co/8B6fMkC"><img src="https://i.ibb.co/H2nb7ZS/Screenshot-2024-05-06-195138.png" alt="Screenshot-2024-05-06-195138" border="0"></a>
+- Tambahkan konfig berikut pada direktori `/xxx/xxx/xxx/xxx.com` Georgopol
+<a href="https://ibb.co/qNNqfZK"><img src="https://i.ibb.co/GWWYLhy/config-etc-bind-delegasi-redzone.png" alt="config-etc-bind-delegasi-redzone" border="0"></a>
