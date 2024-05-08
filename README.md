@@ -229,6 +229,47 @@ zone "siren.redzone.it26.com" {
 <a href="https://ibb.co/LYy5FP2"><img src="https://i.ibb.co/vVWYFBK/Screenshot-2024-05-06-210426.png" alt="Screenshot-2024-05-06-210426" border="0"></a>
 <a href="https://ibb.co/7jTBJ0j"><img src="https://i.ibb.co/VJhbWkJ/Screenshot-2024-05-06-210418.png" alt="Screenshot-2024-05-06-210418" border="0"></a>
 
+## Nomor 11
+- Jalankan command `nano /etc/bind/named.conf.options` dan tambahkan konfigurasi berikut:
+<a href="https://ibb.co/PZH3rsf"><img src="https://i.ibb.co/VW4rL0P/Screenshot-2024-05-08-113745.png" alt="Screenshot-2024-05-08-113745" border="0"></a>
+- Jika pada node masing-masing client bisa melakukan ping google.com maka konfigurasinya sudah tepat
+
+## Nomor 12
+- Buat file .sh pada Severny dan isikan konfig berikut:
+```
+wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=11S6CzcvLG-dB0ws1yp494IURnDvtIOcq' -O 'dir-listing.zip'
+wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=1xn03kTB27K872cokqwEIlk8Zb121HnfB' -O 'lb.zip'
+
+unzip -o dir-listing.zip -d dir-listing
+unzip -o lb.zip -d lb
+
+cp default.conf /etc/apache2/sites-available/default.conf
+rm /etc/apache2/sites-available/000-default.conf
+
+cp ./lb/worker/index.php /var/www/html/index.php
+
+a2ensite default.conf
+
+service apache2 restart
+
+```
+- Buatlah file .sh pada tiap node client dan isikan konfig berikut:
+```
+#!/bin/bash
+
+apt-get update
+apt-get install apache2
+service apache2 start
+apt-get install php
+apt-get install lynx
+apt-get install libapache2-mod-php7.0
+a2enmod php7.0
+apt-get install wget
+apt-get install unzip
+```
+- Jalankan semua file script .sh pada keempat node tersebut, kemudian cek pada node client dengan command berikut `lynx http://192.246.4.2/index.php`. Jika muncul tampilan berikut maka konfignya sudah berhasil
+<a href="https://ibb.co/SXQvYV9"><img src="https://i.ibb.co/6Rvs9Df/Screenshot-2024-05-08-115726.png" alt="Screenshot-2024-05-08-115726" border="0"></a>
+
 ## Kendala
 - Belum semua konfigurasi terautomasi dengan script bash, jadi masih ada beberapa konfigurasi yang dilakukan secara manual
-- Belum bisa mengerjakan soal nomor 11 - 20
+- Belum bisa mengerjakan soal nomor 13 - 20
